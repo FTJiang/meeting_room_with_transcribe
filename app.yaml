@@ -1,0 +1,35 @@
+ runtime: python27
+ api_version: 4
+ threadsafe: true
+
+ handlers:
+ - url: /
+   static_files: www/index.html
+   upload: www/index.html
+   secure: never
+
+ - url: /service_FT
+   static_files: www/index_FT.html
+   upload: www/index_FT.html
+   secure: never
+
+ - url: /RoomEntry
+   static_files: www/RoomEntry.html
+   upload: www/RoomEntry.html
+   secure: never
+
+ - url: /(.*)
+   static_files: www/\1
+   upload: www/(.*)
+   secure: never 
+ - url: /js
+   static_dir: www/js
+   
+ - url: /bootstrap-3.2.0-dist
+   static_dir: www/bootstrap-3.2.0-dist
+   
+ - url: /img
+   static_dir: www/img
+   
+ - url: /style
+   static_dir: www/style

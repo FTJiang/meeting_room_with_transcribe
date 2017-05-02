@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<script src="js/login.js"></script>
+	<meta name="google-signin-client_id" content="57871317948-m6hdrq8k05abc1qg5fcnsojm5uusi9ad.apps.googleusercontent.com">
+
+    <title>International Meeting</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="css/main.css">
+    <link href="css/custom.css" rel="stylesheet">
+	
+	<script src="//use.edgefonts.net/bebas-neue.js"></script>
+
+    <!-- Custom Fonts & Icons -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/icomoon-social.css">
+	<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <script src="https://simplewebrtc.com/latest-v2.js"></script>
+	<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	
+
+</head>
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+	<style>
+		.logoImg{
+			alt:"International Meeting";
+		}
+		
+		.title{
+			align:center;
+		}
+        #remoteVideos video {
+            height: 150px;
+        }
+ 
+        #localVideo {
+            height: 150px;
+        }
+		.videoContainer {
+			position: relative;
+			width: 200px;
+			height: 150px;
+		}
+		.videoContainer video {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		.connectionstate {
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			text-align: center;
+			color: #fff
+		}
+		.volume {
+			position: absolute;
+			left: 15%;
+			width: 70%;
+			bottom: 2px;
+			height: 10px;
+		}
+
+		.footer {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 1rem;
+			background-color: #efefef;
+			text-align: center;
+		}
+
+		.welcome{width:45%;padding:10px;display:inline-block;
+		
+		color: white;
+    text-shadow: 2px 2px 4px #000000;
+	font-size: 18pt;
+		
+		
+		}
+
+	</style>
+
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner" style="background-color:#FAFAFA">
+        <div class="container" >
+            <div class="navbar-header" style="color:black">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a  href="index.html"><img src="Images/logo.png" class="logoImg"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li class="dropdown activate">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Hold Meeting</a></li>
+                            <li><a href="#">Join Meeting</a></li>
+                        </ul>
+                    </li>
+                    <li><a href=#><i class="fa fa-phone"></i>4802082413</a></li>
+                </ul>
+            </div>
+        </div>
+    </header><!--/header-->
+	<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>International Meeting</h1>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="section">
+
+		<!-- page content -->
+	</div>
+	
+	<!--cotent-->
+	<style>
+      body {
+        background-image: url("Images/allRacesOfPeople.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head> 
+	<body>
+  <div align="center" id="my-signin2"
+  	data-onsuccess="onSuccess"
+   data-scope="https://www.googleapis.com/auth/plus.login"
+   data-accesstype="offline"
+   onclick="https://meeting-web.appspot.com/google-login">
+   </div>
+   	<div class="welcome">欢迎使用国际通！</div>
+	<div class="welcome" style="text-align: right">Welcom to International Meeting!</div>
+	<div class="welcome">국제 회의에 오신 것을 환영합니다!</div>
+	<div class="welcome" style="text-align: right">Uluslararası Toplantımıza Hoşgeldiniz!</div>
+	<div class="welcome" style="width:100% !important; text-align: center">अंतरराष्ट्रीय मीटिंग में आपका स्वागत है!</div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+      alert("You have successfully signed in");
+      window.location.href = "/RoomEntry?myid=" + googleUser.getBasicProfile().getName();
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+  <script>
+  	function onSignIn(googleUser) {
+		var profile = googleUser.getBasicProfile();
+		console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		console.log('Name: ' + profile.getName());
+		console.log('Image URL: ' + profile.getImageUrl());
+		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}
+  </script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	
+	<!-- Footer -->
+	    <div class="footer">
+	    	<div class="container">
+			
+		    	<div class="row">
+				
+		    		<div class="col-footer col-md-6 col-xs-6" align="center">
+		    			<h3>Contact Us</h3>
+		    			<p class="contact-us-details">
+	        				<b>Address:</b> Arizon State University<br/>
+	        				<b>Phone:</b> +1 480 2082413<br/>
+	        				<b>Email:</b> <a href="mailto:fjiang14@asu.edu">fjiang14@asu.edu</a>
+	        			</p>
+		    		</div>				
+		    		<div class="col-footer col-md-6 col-xs-6" align="center">
+		    			<h3>Our Social Networks</h3>
+						<p>Following icons do not work.</p>
+		    			<div>
+		    				<img src="Images/icons/facebook.png" width="32" alt="Facebook">
+		    				<img src="Images/icons/twitter.png" width="32" alt="Twitter">
+		    				<img src="Images/icons/linkedin.png" width="32" alt="LinkedIn">
+							<img src="Images/icons/rss.png" width="32" alt="RSS Feed">
+						</div>
+		    		</div>
+
+		    	</div>
+		    	<div class="row">
+		    		<div class="col-md-12">
+		    			<div class="footer-copyright">&copy; 2017 Fangte Jiang and Penghui Zhang. All rights reserved</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+        <!-- Javascripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+		
+		<!-- Scrolling Nav JavaScript -->
+		<script src="js/jquery.easing.min.js"></script>
+		<script src="js/scrolling-nav.js"></script>		
+    </body>
+</html>

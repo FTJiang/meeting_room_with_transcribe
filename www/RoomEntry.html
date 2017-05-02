@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>International Meeting</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="css/main.css">
+    <link href="css/custom.css" rel="stylesheet">
+	
+	<script src="//use.edgefonts.net/bebas-neue.js"></script>
+
+    <!-- Custom Fonts & Icons -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/icomoon-social.css">
+	<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <script src="https://simplewebrtc.com/latest-v2.js"></script>
+	<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <style>
+    
+        .logoImg{
+			alt:"International Meeting";
+		}
+		
+		.title{
+			align:center;
+		}
+
+		.connectionstate {
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			text-align: center;
+			color: #fff
+		}
+		.volume {
+			position: absolute;
+			left: 15%;
+			width: 70%;
+			bottom: 2px;
+			height: 10px;
+		}
+
+        .footer {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 1rem;
+			background-color: #efefef;
+			text-align: center;
+		}
+
+        .createRoom {
+            text-align: center;
+        }
+
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+
+        .welcome{
+            width:45%;padding:10px;float:left;display:inline-block;
+		    color: white;
+            text-shadow: 2px 2px 4px #000000;
+	        font-size: 18pt;
+		}
+
+        .hint{
+            width:100%;
+		    color: white;
+            text-shadow: 2px 2px 4px #000000;
+		}
+
+        .ButtonText{
+            width:100%;
+		    color: black;
+            text-shadow: 2px 2px 4px #000000;
+            text-align: center;
+		}
+
+        .langSelect {
+            text-align: center;
+        }
+		
+        body {
+            background-image: url("Images/allRacesOfPeople.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+	
+
+</head>
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+	<style>
+		
+	</style>
+
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner" style="background-color:#FAFAFA">
+        <div class="container" >
+            <div class="navbar-header" style="color:black">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a  href="index.html"><img src="Images/logo.png" class="logoImg"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li class="dropdown activate">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Hold Meeting</a></li>
+                            <li><a href="#">Join Meeting</a></li>
+                        </ul>
+                    </li>
+                    <li><a href=#><i class="fa fa-phone"></i>4802082413</a></li>
+                </ul>
+            </div>
+        </div>
+    </header><!--/header-->
+	<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>In Meeting</h1>
+					</div>
+				</div>
+			</div>
+	</div>
+	
+    <!--content-->
+    
+    <div class="ButtonText" id="comboA" name="L_Sel" align="center"> Please select your language:
+        <select onchange="getComboA(this)">
+            <option value="">Select your language</option>
+            <option value="Chinese">中文</option>
+            <option value="English">English</option>
+            <option value="Korean">한국어</option>
+            <option value="Turkish">Türk dili</option>
+        </select>
+    </div>
+	<form class="ButtonText" align="center" action="javascript:redirect();">
+        Room Number: <input type="text" id="roomNum"><br>
+        <input type="submit" value="Submit" onclick="redirect()">
+    </form>
+    <p class="ButtonText" align="center">OR </p>
+    <div class="ButtonText" align="center">
+        <button onclick="javascript:createRoomRequest();"> Create a room </button>
+    </div>
+    <div class="welcome">请选择语言并进入房间</div>
+	<div class="welcome" style="text-align: right">Please select your language and enter room</div>
+	<div class="welcome">언어를 선택하고 방에 들어가세요</div>
+	<div class="welcome" style="text-align: right">Dilinizi seçmek ve odayı giriniz</div>
+	<div class="welcome" style="width:100% !important; text-align: center">कृपया अपनी भाषा चुनें और कमरे में प्रवेश</div>
+    <script>
+        var language;
+        function getComboA(selectObject) {
+            language = selectObject.value;
+        }
+        function getURLParameter(name) {
+  		        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+	    }
+        function redirect() {
+            //language = request.getParameter("L_Sel");
+            alert(language);
+            sendRequest(document.getElementById("roomNum").value);
+        }
+
+        //need to be modified
+        function sendRequest(roomNum) { 
+            var http = new XMLHttpRequest();
+            var url = "http://52.33.199.111:2224/enterRoom?roomID=" + roomNum;
+            //http.setRequestHeader("Accept", "*/*");
+            http.open("GET", url, true);
+            http.send(null);
+            http.onreadystatechange = function() {//Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    if(JSON.parse(http.responseText).result === "true") {
+                        window.location.href = "/service_FT?myid=" + getURLParameter("myid") + "&myRoom=" + roomNum + "&lang=" + language;
+                    } else {
+                        alert("Room Number DOES NOT exist. Please re-enter OR choose CREATE A ROOM");
+                    } 
+                }
+            }
+	    }
+
+        function createRoomRequest() {
+            // need to be modified
+            var http = new XMLHttpRequest();
+            var url = "http://52.33.199.111:2224/getRoomID";
+            //http.setRequestHeader("Accept", "*/*");
+            http.open("GET", url, true);
+            http.send(null);
+            http.onreadystatechange = function() {//Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    console.log("room number is ", JSON.parse(http.responseText).result);
+                    if(JSON.parse(http.responseText).result) {
+                        var roomID = JSON.parse(http.responseText).result;
+                        window.location.href = "/service_FT?myid=" + getURLParameter("myid") + "&myRoom=" + roomID + "&lang=" + language;
+                    } else {
+                        alert("Fail to create a room");
+                    } 
+                }
+            }
+        }
+    </script>
+	
+	<!-- Footer -->
+	    <div class="footer">
+	    	<div class="container">
+			
+		    	<div class="row">
+				
+		    		<div class="col-footer col-md-6 col-xs-6" align="center">
+		    			<h3>Contact Us</h3>
+		    			<p class="contact-us-details">
+	        				<b>Address:</b> Arizon State University<br/>
+	        				<b>Phone:</b> +1 480 2082413<br/>
+	        				<b>Email:</b> <a href="mailto:fjiang14@asu.edu">fjiang14@asu.edu</a>
+	        			</p>
+		    		</div>				
+		    		<div class="col-footer col-md-6 col-xs-6" align="center">
+		    			<h3>Our Social Networks</h3>
+						<p>Following icons do not work.</p>
+		    			<div>
+		    				<img src="Images/icons/facebook.png" width="32" alt="Facebook">
+		    				<img src="Images/icons/twitter.png" width="32" alt="Twitter">
+		    				<img src="Images/icons/linkedin.png" width="32" alt="LinkedIn">
+							<img src="Images/icons/rss.png" width="32" alt="RSS Feed">
+						</div>
+		    		</div>
+
+		    	</div>
+		    	<div class="row">
+		    		<div class="col-md-12">
+		    			<div class="footer-copyright">&copy; 2017 Fangte Jiang and Penghui Zhang. All rights reserved</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+        <!-- Javascripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+		
+		<!-- Scrolling Nav JavaScript -->
+		<script src="js/jquery.easing.min.js"></script>
+		<script src="js/scrolling-nav.js"></script>		
+    </body>
+</html>

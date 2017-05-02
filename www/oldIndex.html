@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<script src="js/login.js"></script>
+		<meta name="google-signin-client_id" content="57871317948-m6hdrq8k05abc1qg5fcnsojm5uusi9ad.apps.googleusercontent.com">
+    <style>
+      body {
+        background-image: url("Images/allRacesOfPeople.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head> 
+	<body>
+  <div id="my-signin2"
+  	data-onsuccess="onSuccess"
+   data-scope="https://www.googleapis.com/auth/plus.login"
+   data-accesstype="offline"
+   onclick="https://meeting-web.appspot.com/google-login"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+      alert("You have successfully signed in");
+      window.location.href = "/RoomEntry?myid=" + googleUser.getBasicProfile().getName();
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+  <script>
+  	function onSignIn(googleUser) {
+		var profile = googleUser.getBasicProfile();
+		console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		console.log('Name: ' + profile.getName());
+		console.log('Image URL: ' + profile.getImageUrl());
+		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}
+  </script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
