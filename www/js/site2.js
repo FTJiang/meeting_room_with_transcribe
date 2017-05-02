@@ -165,7 +165,8 @@ $(function () {
 				connection.send(JSON.stringify(myPeerIdMsg));  
 				var fetchPeerIdMsg = {cmd:"fetchIds",room:roomId};
 				connection.send(JSON.stringify(fetchPeerIdMsg));  
-				
+				var fetchTokenMsg = {cmd:"fetchToken"};
+				connection.send(JSON.stringify(fetchTokenMsg));
 			}).catch(
 				(reason) => {
 					console.log('Handle rejected promise ('+reason+') here.');
