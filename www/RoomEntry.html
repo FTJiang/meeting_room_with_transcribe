@@ -188,8 +188,12 @@
 	    }
         function redirect() {
             //language = request.getParameter("L_Sel");
-            alert(language);
-            sendRequest(document.getElementById("roomNum").value);
+            //alert(language);
+            if(language) {
+                sendRequest(document.getElementById("roomNum").value);
+            } else {
+                alert("Please select your language");
+            }
         }
 
         //need to be modified
@@ -212,22 +216,27 @@
 	    }
 
         function createRoomRequest() {
-            // need to be modified
-            var http = new XMLHttpRequest();
-            var url = "http://52.33.199.111:2224/getRoomID";
-            //http.setRequestHeader("Accept", "*/*");
-            http.open("GET", url, true);
-            http.send(null);
-            http.onreadystatechange = function() {//Call a function when the state changes.
-                if(http.readyState == 4 && http.status == 200) {
-                    console.log("room number is ", JSON.parse(http.responseText).result);
-                    if(JSON.parse(http.responseText).result) {
-                        var roomID = JSON.parse(http.responseText).result;
-                        window.location.href = "/service_FT?myid=" + getURLParameter("myid") + "&myRoom=" + roomID + "&lang=" + language;
-                    } else {
-                        alert("Fail to create a room");
-                    } 
+            if(language) {
+                // need to be modified
+                //console.log(language);
+                var http = new XMLHttpRequest();
+                var url = "http://52.33.199.111:2224/getRoomID";
+                //http.setRequestHeader("Accept", "*/*");
+                http.open("GET", url, true);
+                http.send(null);
+                http.onreadystatechange = function() {//Call a function when the state changes.
+                    if(http.readyState == 4 && http.status == 200) {
+                        console.log("room number is ", JSON.parse(http.responseText).result);
+                        if(JSON.parse(http.responseText).result) {
+                            var roomID = JSON.parse(http.responseText).result;
+                            window.location.href = "/service_FT?myid=" + getURLParameter("myid") + "&myRoom=" + roomID + "&lang=" + language;
+                        } else {
+                            alert("Fail to create a room");
+                        } 
+                    }
                 }
+            } else {
+                alert("Please select your language");
             }
         }
     </script>
