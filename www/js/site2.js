@@ -27,6 +27,7 @@ $(function () {
 		conns = [],  //peers' connection
         contextSampleRate = (new AudioContext()).sampleRate,
         resampleRate = 16000,
+		//resampleRate = contextSampleRate,
         worker = new Worker('js/worker/resampler-worker.js');
 
 		alert("Your name is: " + NickName);

@@ -45,10 +45,10 @@ server.on('connection', function(client) {
 	client.on('stream', function(stream, meta) {
 		console.log("new connection", meta.NickName);
 		try{
-			stream.pipe(recognize(meta.language,meta.NickName,meta.room));
+			stream.pipe(recognize(stream,meta.language,meta.NickName,meta.room));
 		}catch(error){
 			console.log("try error: ",error);
-			stream.pipe(recognize(meta.language,meta.NickName,meta.room));
+			stream.pipe(recognize(stream,meta.language,meta.NickName,meta.room));
 		}
 		client.on('close', function() {
 			stream.destroy();
@@ -59,7 +59,7 @@ server.on('connection', function(client) {
 });
 
 //return recognizestream which will broadcast result to all users
-function recognize(src_language,NickName,roomId){
+function recognize(stream,src_language,NickName,roomId){
   const Speech = require('@google-cloud/speech');
   // Instantiates a client
   const speech = Speech();
@@ -77,12 +77,17 @@ function recognize(src_language,NickName,roomId){
       sampleRateHertz: sampleRateHertz,
       languageCode: languageCode
     },
-	singleUtterance: false
+	singleUtterance: false,
+	interimResults: false
   };
 
   // Create a recognize stream
   const recognizeStream = speech.createRecognizeStream(request)
-    .on('error', console.error)
+    .on('error', (error)=>{
+		console.error;
+		stream.pipe(recognize(stream,meta.language,meta.NickName,meta.room));
+		console.log("restart streaming");
+	})
     .on('data', (data) => {
 		 process.stdout.write(data.results);
 		//broadcast result to all clients

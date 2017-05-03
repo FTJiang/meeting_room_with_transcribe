@@ -167,7 +167,7 @@
     </div>
 	<form class="ButtonText" align="center" action="javascript:redirect();">
         Room Number: <input type="text" id="roomNum"><br>
-        <input type="submit" value="Submit" onclick="redirect()">
+        <input type="submit" value="Submit">
     </form>
     <p class="ButtonText" align="center">OR </p>
     <div class="ButtonText" align="center">
@@ -201,6 +201,7 @@
             http.send(null);
             http.onreadystatechange = function() {//Call a function when the state changes.
                 if(http.readyState == 4 && http.status == 200) {
+					console.log("This is roomEntry result: ",JSON.parse(http.responseText).result)
                     if(JSON.parse(http.responseText).result === "true") {
                         window.location.href = "/service_FT?myid=" + getURLParameter("myid") + "&myRoom=" + roomNum + "&lang=" + language;
                     } else {
