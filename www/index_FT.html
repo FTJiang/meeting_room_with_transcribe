@@ -149,6 +149,7 @@
 	<div id="my-camera" style="width:25%"> </div>
 	<div id="cameraPlusText">
 		<div id="canvas-container" style="text-align: center; margin: auto;">
+			<p id="roomID"></p>
         	<canvas width="600" height="100" id="canvas"></canvas>
     	</div>
 		<div id="cameras" class="left" style="width:50%">
@@ -172,5 +173,12 @@
 	</div>
 
 </div>
+
+<script>
+	function getURLParameter(name) {
+  		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+	}
+	document.getElementById("roomID").innerHTML = "Room ID: " + getURLParameter("myRoom");
+</script>
 </body>
 </html>
