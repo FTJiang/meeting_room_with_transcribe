@@ -3,6 +3,7 @@ International Meeting
 
 We're under development!
 International Meeting is a web application which is capable of normal video conference and real-time transcribing. See http://meeting-web.appspot.com for project demo.
+
 Note: 
 1. Our project now only supports firefox browser and do not support https connection.
 2. You can not restart meeting after pressing stop button.
@@ -24,7 +25,7 @@ Google cloud speech API, Bing translate API, Google Log-in, Google datastore API
 Architecture of the project:
 ![Alt text](/www/Images/architecture.jpg?raw=true "Project Architecture")
 
-## Download and run
+## Download and Run
 
 binaryjs Server
 
@@ -77,7 +78,7 @@ $ cd meeting_room_with_transcribe
 $ gcloud app deploy --project yourprojectId
 ```
 
-##How to use demo
+## How to use demo
 1. Visit homepage through Firefox after deployment
 2. Login via google account
 3. Choose a language you'd like to speak
