@@ -6,3 +6,8 @@ network:
   - 65080
   - 2223
   instance_tag: websocket
+  
+resources:
+  cpu: 2
+  memory_gb: 11.6
+  disk_size_gb: 10

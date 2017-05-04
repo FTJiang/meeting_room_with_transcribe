@@ -1,6 +1,6 @@
 {
-  "name": "binaryjsServer",  
-  "description": "Node js server for transcribe audio stream",
+  "name": "roomsServer",  
+  "description": "Node js server room management",
   "version": "1.0.0",
   "private": true,
   "license": "ISC",
@@ -9,20 +9,17 @@
     "node": ">=4.3.2"
   },
   "scripts": {
-    "start": "node binaryjsServer.js"
+    "start": "node roomServer.js"
   },
   "dependencies": {
     "body-parser":"^1.17.1",
     "express":"^4.15.2",
-	"binaryjs":"^0.2.1",
+	"uuid":"^3.0.1",
 	"promise":"^7.1.1",
-	"request":"^2.81.0",
 	"https":"^1.0.0",
 	"@google-cloud/speech": "0.9.0",
     "@google-cloud/storage": "1.0.0",
-    "node-record-lpcm16": "0.3.0",
 	"pug": "2.0.0-beta6",
 	"ws":"^2.3.1",
-    "yargs": "7.0.2"
   }
 }

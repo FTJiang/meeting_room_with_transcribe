@@ -54,8 +54,7 @@ server.on('connection', function(client) {
 			stream.destroy();
 			console.log("connection finished");
 		});
-	});
-		
+	});	
 });
 
 //return recognizestream which will broadcast result to all users
@@ -70,22 +69,21 @@ function recognize(stream,src_language,NickName,roomId){
    const sampleRateHertz = 16000;
   // The BCP-47 language code to use, e.g. 'en-US'
    const languageCode = src_language;
-
-  const request = {
-    config: {
-      encoding: encoding,
-      sampleRateHertz: sampleRateHertz,
-      languageCode: languageCode
-    },
-	singleUtterance: false,
-	interimResults: false
-  };
+   const request = {
+		config: {
+		  encoding: encoding,
+		  sampleRateHertz: sampleRateHertz,
+		  languageCode: languageCode,
+		},
+		singleUtterance: false,
+		interimResults: false,
+	  };
 
   // Create a recognize stream
   const recognizeStream = speech.createRecognizeStream(request)
     .on('error', (error)=>{
 		console.error;
-		stream.pipe(recognize(stream,meta.language,meta.NickName,meta.room));
+		stream.pipe(recognize(stream,src_language,NickName,roomId));
 		console.log("restart streaming");
 	})
     .on('data', (data) => {
@@ -97,8 +95,8 @@ function recognize(stream,src_language,NickName,roomId){
 		  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 		  console.log('body:', body); // Print the HTML for the Google homepage.
 		});
-
     });
+  console.log("begin new streaming");
   return recognizeStream;
 }
 const METADATA_NETWORK_INTERFACE_URL = 'http://metadata/computeMetadata/v1/' +

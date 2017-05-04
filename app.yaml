@@ -12,11 +12,15 @@
    static_files: www/index_FT.html
    upload: www/index_FT.html
    secure: never
+   login: required
+   auth_fail_action: redirect
 
  - url: /RoomEntry
    static_files: www/RoomEntry.html
    upload: www/RoomEntry.html
    secure: never
+   login: required
+   auth_fail_action: redirect
 
  - url: /(.*)
    static_files: www/\1
