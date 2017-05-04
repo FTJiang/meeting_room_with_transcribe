@@ -191,6 +191,9 @@ $(function () {
 			else if(message.nickname)//&&(message.nickname!==NickName))
 			{
 				var chatZone = document.getElementById("chatZone");
+				window.setInterval(function() {
+				chatZone.scrollTop = chatZone.scrollHeight;
+				}, 5000);
 				//translate to target language text
 				console.log('data: ', message.data,message.nickname,message.src_lang);
 				if(message.src_lang !== googleLangCode[language])
