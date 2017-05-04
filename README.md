@@ -2,7 +2,7 @@ International Meeting
 ========
 
 We're under development!
-International Meeting is a web application which is capable of normal video conference and real-time transcribing. See http://meeting-web.appspot.com for project demo.
+International Meeting is a web application which is capable of normal video conference hosting and real-time transcribing. See http://meeting-web.appspot.com for project demo.
 
 Note: 
 1. Our project now only supports firefox browser and do not support https connection.
@@ -88,7 +88,11 @@ $ gcloud app deploy --project yourprojectId
 7. Start conference
 8. Click stop meeting button to stop connection with others
 
-
+## Future Improvement
+1. Server provide https connection so that our project can support Chrome
+2. Beautify web pages
+3. Take more security issues into consideration such as XSS and SQL injection, sanitize all the input from client side
+4. Perform error handling on servers so that server can be more stable and reliable
 
 
 
