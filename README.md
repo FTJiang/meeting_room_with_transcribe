@@ -10,6 +10,8 @@ Note:
 3. Since speaker will affect recognization of your audio, you should use headphones.
 4. Room creater should share unique roomId with other participants for them to join this room
 5. Room will not be created until creater press start meeting button which means other participants can not enter this room until creater start meeting.
+6. If you want to exit one room and enter another room, you must start from home page which means you can not just back to room entry page and join another room.
+7. Input text doesn't support language translation.
 
 Our features:
 1. Use google user authentication, get username automatically
@@ -24,6 +26,11 @@ Google cloud speech API, Bing translate API, Google Log-in, Google datastore API
 
 Architecture of the project:
 ![Alt text](/www/Images/architecture.jpg?raw=true "Project Architecture")
+
+
+## Prerequisites
+1. A Google Cloud Platform Console project with the Google cloud speech API and Google datastore API enabled.
+2. Have authentication with Application Default Credentials, room server require default credentials to use datastore API.
 
 ## Download and Run
 
@@ -59,7 +66,14 @@ $ npm install
 
 binaryjs Server
 
-
+Before deploy, you should specify IP of room server on line 86 of binaryjsServer.js. Besides, you should enable traffic through port 65080 by command:
+```
+gcloud compute firewall-rules create default-allow-websockets \
+  --allow tcp:65080 \
+  --target-tags websocket \
+  --description "Allow websocket traffic on port 65080"
+```
+Then deploy to GAE
 ```
 $ cd meeting_room_with_transcribe/binary-server
 $ gcloud app deploy --project yourprojectId
