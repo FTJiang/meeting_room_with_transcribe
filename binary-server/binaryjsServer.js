@@ -29,17 +29,10 @@ app.get('/', (req, res) => {
   });
 });
 
+http.listen(65080);  //handle audio streaming
+app.listen(8080); //handle IP request
 
-app.get('/getBingToken', (req, res) => {
-	//generate unique random id
-	caller(function(result){
-		var data = {token:result};
-		res.send(JSON.stringify(data));	
-	});
-});
-http.listen(65080);
-app.listen(8080);
-//var server = binaryServer({port: 2222});
+//binaryjs server used for audio streaming handling
 var server = binaryServer({server:http});
 server.on('connection', function(client) {
 	client.on('stream', function(stream, meta) {
@@ -62,9 +55,8 @@ function recognize(stream,src_language,NickName,roomId){
   const Speech = require('@google-cloud/speech');
   // Instantiates a client
   const speech = Speech();
-  // The encoding of the audio file, e.g. 'LINEAR16'
+  // The encoding of the audio stream, e.g. 'LINEAR16'
    const encoding = 'LINEAR16';
-//	const encoding = 'FLAC';
   // The sample rate of the audio file in hertz, e.g. 16000
    const sampleRateHertz = 16000;
   // The BCP-47 language code to use, e.g. 'en-US'
@@ -82,13 +74,14 @@ function recognize(stream,src_language,NickName,roomId){
   // Create a recognize stream
   const recognizeStream = speech.createRecognizeStream(request)
     .on('error', (error)=>{
+		//restart streaming if error occur
 		console.error;
 		stream.pipe(recognize(stream,src_language,NickName,roomId));
 		console.log("restart streaming");
 	})
     .on('data', (data) => {
 		 process.stdout.write(data.results);
-		//broadcast result to all clients
+		//post to room server for broadcast
 		var message = {data:data.results, nickname:NickName,src_lang:src_language,room:roomId};
 		requests.post('http://52.33.199.111:2224',{form:message},function (error, response, body) {
 		  console.log('error:', error); // Print the error if one occurred
@@ -96,9 +89,10 @@ function recognize(stream,src_language,NickName,roomId){
 		  console.log('body:', body); // Print the HTML for the Google homepage.
 		});
     });
-  console.log("begin new streaming");
   return recognizeStream;
 }
+
+//functions for getting external IP
 const METADATA_NETWORK_INTERFACE_URL = 'http://metadata/computeMetadata/v1/' +
     '/instance/network-interfaces/0/access-configs/0/external-ip';
 
