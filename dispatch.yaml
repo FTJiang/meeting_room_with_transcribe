@@ -1,3 +1,0 @@
-dispatch:
-  - url: '*/server2'
-    module: server2
