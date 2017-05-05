@@ -86,7 +86,9 @@ $ cd meeting_room_with_transcribe/room-server
 $ gcloud app deploy --project yourprojectId
 ```
 
-client side
+client side 
+
+In directory meeting_room_with_transcribe\www\js\site2.js, you should change websocket target IP to the IP on which your room server runs
 ```
 $ cd meeting_room_with_transcribe
 $ gcloud app deploy --project yourprojectId
