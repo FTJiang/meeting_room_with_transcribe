@@ -84,12 +84,13 @@ room Server
 You can deploy it to GCE or AWS, you can generate golden image directly by packer and then run server on your instance.
 Install packer
 Packer is used to build golden images for installing the software systems you'll be working on in this course. [Download it](https://www.packer.io/downloads.html) and follow the [installation instructions](https://www.packer.io/intro/getting-started/install.html) for your platform.
-generate AWS golden image
+
+#### generate AWS golden image
 ```
 $ cd meeting_room_with_transcribe/room-server
 $ packer build -only=amazon-ebs -var 'aws_access_key=YOUR_ACCESS_KEY' -var 'aws_secret_key=YOUR_SECRET_KEY' packer.json
 ```
-generate GCE golden image
+#### generate GCE golden image
 ```
 $ cd meeting_room_with_transcribe/room-server
 $ packer build -only=googlecompute -var GCE_project_id=YOUR_PROJECT_ID -var GCE_account_file=PATH/TO/ACCOUNT/FILE -var GCE_ssh_username=YOUR_SSH_USERNAME packer.json
