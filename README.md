@@ -2,7 +2,7 @@ International Meeting
 ========
 
 We're under development!
-International Meeting is a web application which is capable of normal video conference hosting and real-time transcribing. See http://meeting-web.appspot.com for project demo.
+International Meeting is a web application which is capable of normal video conference hosting and real-time transcribing. See http://meeting-web.appspot.com for project demo.(Since expiration of my Azure subscription, I stopped this demo)
 
 Note: 
 1. Our project now only supports firefox browser and do not support https connection.
